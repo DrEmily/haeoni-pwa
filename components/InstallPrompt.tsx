@@ -80,8 +80,8 @@ export function InstallPrompt() {
       role="dialog"
       aria-label="홈 화면에 추가"
       className="
-        fixed left-1/2 -translate-x-1/2 z-50
-        bottom-[max(16px,env(safe-area-inset-bottom))]
+        fixed left-0 right-0 mx-auto z-50
+        bottom-[calc(env(safe-area-inset-bottom,0px)+12px)]
         w-[calc(100%-24px)] max-w-[440px]
         rounded-2xl border border-sky-200 bg-white shadow-card-hover
         p-3.5 pr-2 animate-slide-up
