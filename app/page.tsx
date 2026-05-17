@@ -6,6 +6,8 @@ import { WeatherCard, WeatherCardSkeleton } from "@/components/WeatherCard";
 import { SeaTempCard, SeaTempCardSkeleton } from "@/components/SeaTempCard";
 import { RefreshButton } from "@/components/RefreshButton";
 import { ErrorToast } from "@/components/ErrorToast";
+import { InstallPrompt } from "@/components/InstallPrompt";
+import { ServiceWorkerRegister } from "@/components/ServiceWorkerRegister";
 import type { Weather, SeaTemp } from "@/lib/types";
 
 const fetcher = async (url: string) => {
@@ -31,10 +33,10 @@ export default function HomePage() {
   };
 
   return (
-    <div className="space-y-3">
+    <div className="space-y-3 pb-24">
+      <ServiceWorkerRegister />
       <Header />
 
-      {/* 모바일: 1열 / 480px+ : 서울·양양 2열 / 수온은 항상 한 줄 가득 */}
       <section
         className="grid gap-3 xs:grid-cols-2 sm:grid-cols-2"
         aria-label="날씨"
@@ -66,6 +68,7 @@ export default function HomePage() {
       </footer>
 
       {error && <ErrorToast message="연결을 확인해주세요" />}
+      <InstallPrompt />
     </div>
   );
 }
