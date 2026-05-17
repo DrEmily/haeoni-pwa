@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Pretendard Variable";
+  font-weight: 45 920;
+  font-style: normal;
+  font-display: swap;
+  src: url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/woff2/PretendardVariable.woff2")
+    format("woff2-variations");
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+  html {
+    font-family: "Pretendard Variable", "Pretendard", system-ui, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-sky-50 text-slate-900 antialiased;
+    background-image:
+      radial-gradient(1200px 600px at 50% -200px, rgba(186, 230, 253, 0.55), transparent 60%),
+      linear-gradient(180deg, #f0f9ff 0%, #f8fafc 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+  button, a {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* 안전 가드 — 한국 사용자 환경에서 Windows 기본값으로 애니메이션이 꺼지면
+   대부분의 마이크로 인터랙션이 무력화되어 의도된 디자인이 깨집니다.
+   접근성을 위한 reduce-motion 처리는 컴포넌트 단에서 개별 판단합니다. */
